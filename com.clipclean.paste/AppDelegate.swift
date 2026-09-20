@@ -79,7 +79,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func setUpPanel(model: PanelModel) {
         let panel = PanelWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 300, height: 360),
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.borderless, .resizable],
             backing: .buffered,
             defer: false
@@ -244,12 +244,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let targetSize: NSSize
         if showing {
             panelSizeBeforeSettings = panel.frame.size
-            targetSize = NSSize(
-                width: max(panel.frame.width, 340),
-                height: max(panel.frame.height, 340)
-            )
+            let expandedWidth = min(max(panel.frame.width, 340), 340)
+            let expandedHeight = min(max(panel.frame.height, 340), 340)
+            targetSize = NSSize(width: expandedWidth, height: expandedHeight)
         } else {
-            targetSize = panelSizeBeforeSettings ?? NSSize(width: 300, height: 360)
+            targetSize = panelSizeBeforeSettings ?? NSSize(width: 300, height: 300)
             panelSizeBeforeSettings = nil
         }
 
