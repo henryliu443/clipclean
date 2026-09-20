@@ -37,8 +37,9 @@ See [`Screenshots/`](Screenshots) for the expected file names.
 - macOS 14.0 or later (Apple Silicon or Intel)
 - Xcode 26+ to build
 
-On macOS 26 and later the panel uses SwiftUI Liquid Glass; on macOS 14–25 it
-falls back to a translucent `.ultraThinMaterial`.
+On macOS 26 and later the panel uses SwiftUI Liquid Glass (following the
+system *Appearance → Liquid Glass* setting); on macOS 14–15 it falls back to a
+translucent `.ultraThinMaterial`.
 
 ## Install
 
