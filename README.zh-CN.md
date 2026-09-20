@@ -16,18 +16,9 @@
 
 ## 截图
 
-_待补充。_
-
-<!--
-  把 01-main.png、02-settings.png、03-menu.png 放进 Screenshots/ 后，
-  取消下面表格的注释即可。
-
 | 主面板 | 设置 | 右键菜单 |
 | --- | --- | --- |
 | ![主面板](Screenshots/01-main.png) | ![设置](Screenshots/02-settings.png) | ![右键菜单](Screenshots/03-menu.png) |
--->
-
-文件名说明见 [`Screenshots/`](Screenshots)。
 
 ## 系统要求
 
@@ -39,7 +30,7 @@ macOS 14–15 回退为半透明 `.ultraThinMaterial` 材质。
 
 ## 安装
 
-从 [最新 Release](../../releases/latest) 下载 `Clipclean-1.1.0.dmg`，打开后把
+从 [最新 Release](../../releases/latest) 下载 `Clipclean-1.1.1.dmg`，打开后把
 **Clipclean** 拖进 **Applications**。
 
 Release 里的构建是本地签名、**未公证**的，所以首次打开 macOS 可能拦截。右键
@@ -83,7 +74,7 @@ open com.clipclean.paste.xcodeproj   # 然后 ⌘R
 Release 构建并打包 DMG：
 
 ```sh
-./scripts/package-dmg.sh             # 生成 build/Clipclean-1.1.0.dmg
+./scripts/package-dmg.sh             # 生成 build/Clipclean-1.1.1.dmg
 VERSION=1.2.0 ./scripts/package-dmg.sh
 ```
 
@@ -103,9 +94,9 @@ xcrun notarytool store-credentials "clipclean-notary" \
     --password "app-specific-password"
 
 # 3. 公证并装订
-xcrun notarytool submit build/Clipclean-1.1.0.dmg \
+xcrun notarytool submit build/Clipclean-1.1.1.dmg \
     --keychain-profile "clipclean-notary" --wait
-xcrun stapler staple build/Clipclean-1.1.0.dmg
+xcrun stapler staple build/Clipclean-1.1.1.dmg
 ```
 
 ## 项目结构
