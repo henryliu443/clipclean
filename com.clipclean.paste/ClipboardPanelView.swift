@@ -6,19 +6,6 @@ struct ClipboardPanelView: View {
     @ObservedObject var model: PanelModel
 
     var body: some View {
-        if #available(macOS 26.0, *) {
-            GlassEffectContainer {
-                panelContent
-            }
-            // GlassEffectContainer 的底衬默认是直角矩形，会从圆角面板后面溢出成
-            // 一个方形框。按面板同样的圆角裁掉溢出的部分，保留液态玻璃引擎。
-            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-        } else {
-            panelContent
-        }
-    }
-
-    private var panelContent: some View {
         Group {
             if model.showingSettings {
                 SettingsView(model: model)
@@ -29,7 +16,6 @@ struct ClipboardPanelView: View {
         .padding(16)
         .frame(minWidth: 260, minHeight: 280)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .adaptiveGlass(in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 }
 
