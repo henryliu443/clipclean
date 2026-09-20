@@ -30,15 +30,17 @@ struct ClipboardPanelView: View {
     }
 }
 
-// MARK: - 版本检测：macOS 26+ 原生清澈液态玻璃 (Glass.clear + Container)，旧系统 (macOS 14–25) 回退其他 SwiftUI 材质
+// MARK: - 版本检测：macOS 26+ 原生液态玻璃（跟随系统整体调节），macOS 14–15 回退 SwiftUI 材质
 extension View {
     @ViewBuilder
     func adaptiveGlass<S: Shape>(in shape: S) -> some View {
         if #available(macOS 26.0, *) {
-            // macOS 26+: 原生 Liquid Glass（采用 .clear 清澈高透，不带 .regular 的毛玻璃磨砂感）
-            self.glassEffect(.clear, in: shape)
+            // macOS 26+: 原生 Liquid Glass
+            // 用 .regular 而不是 .clear —— .regular 会跟随系统「外观 → Liquid Glass」的
+            // Clear / Tinted 整体设置自动调节；.clear 是强制全透，不受系统滑杆控制。
+            self.glassEffect(.regular, in: shape)
         } else {
-            // macOS 14–25: SwiftUI 半透明材质回退
+            // macOS 14–15: SwiftUI 半透明材质回退
             self.background(.ultraThinMaterial, in: shape)
         }
     }
