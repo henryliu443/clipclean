@@ -16,7 +16,21 @@ struct ClipboardPanelView: View {
         .padding(16)
         .frame(minWidth: 260, minHeight: 280)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .adaptiveGlass(in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+    }
+}
+
+// MARK: - 版本检测：优先使用 macOS 26+ 原生液态玻璃，旧系统 (macOS 14–25) 回退其他 SwiftUI 材质
+extension View {
+    @ViewBuilder
+    func adaptiveGlass<S: Shape>(in shape: S) -> some View {
+        if #available(macOS 26.0, *) {
+            // macOS 26+: 原生 Liquid Glass
+            self.glassEffect(.regular, in: shape)
+        } else {
+            // macOS 14–25: SwiftUI 半透明材质回退
+            self.background(.ultraThinMaterial, in: shape)
+        }
     }
 }
 
@@ -46,7 +60,7 @@ private struct MainView: View {
                         .contentShape(Circle())
                 }
                 .buttonStyle(.plain)
-                .glassEffect(.regular, in: Circle())
+                .adaptiveGlass(in: Circle())
                 .contentShape(Circle())
                 .help(strings.settings)
             }
@@ -131,7 +145,7 @@ private struct SettingsView: View {
                         .contentShape(Circle())
                 }
                 .buttonStyle(.plain)
-                .glassEffect(.regular, in: Circle())
+                .adaptiveGlass(in: Circle())
                 .contentShape(Circle())
                 .keyboardShortcut(.escape, modifiers: [])
 
@@ -187,7 +201,7 @@ private struct SettingsView: View {
                 .font(.system(.caption, design: .rounded).weight(.semibold))
                 .padding(.horizontal, 8)
                 .padding(.vertical, 3)
-                .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 6))
+                .adaptiveGlass(in: RoundedRectangle(cornerRadius: 6))
             Text(description)
                 .font(.caption)
             Spacer()
