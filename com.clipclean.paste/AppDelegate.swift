@@ -79,7 +79,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func setUpPanel(model: PanelModel) {
         let panel = PanelWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: 240, height: 300),
             styleMask: [.borderless, .resizable],
             backing: .buffered,
             defer: false
@@ -96,7 +96,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         panel.hidesOnDeactivate = false
         panel.level = .floating
         panel.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
-        panel.contentMinSize = NSSize(width: 260, height: 280)
+        panel.contentMinSize = NSSize(width: 220, height: 280)
         panel.delegate = self
 
         let hosting = NSHostingView(rootView: ClipboardPanelView(model: model))
@@ -248,7 +248,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             let expandedHeight = min(max(panel.frame.height, 340), 340)
             targetSize = NSSize(width: expandedWidth, height: expandedHeight)
         } else {
-            targetSize = panelSizeBeforeSettings ?? NSSize(width: 300, height: 300)
+            targetSize = panelSizeBeforeSettings ?? NSSize(width: 240, height: 300)
             panelSizeBeforeSettings = nil
         }
 

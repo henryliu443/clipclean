@@ -14,7 +14,7 @@ struct ClipboardPanelView: View {
             }
         }
         .padding(16)
-        .frame(minWidth: 260, minHeight: 280)
+        .frame(minWidth: 200, minHeight: 260)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
