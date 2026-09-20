@@ -135,3 +135,7 @@ scripts/package-dmg.sh
 ## Deliberately not included
 
 No clipboard history, search, cloud sync, AI, OCR, or extra settings.
+
+## License
+
+Apache-2.0. See `LICENSE`.
