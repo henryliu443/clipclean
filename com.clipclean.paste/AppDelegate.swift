@@ -43,6 +43,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         setUpPanel(model: model)
         setUpHotKeys()
 
+        if #available(macOS 26.0, *) {
+            NSLog("[Clipclean] 系统检测: %@ → 采用 macOS 26+ 原生液态玻璃 (.glassEffect)", ProcessInfo.processInfo.operatingSystemVersionString)
+        } else {
+            NSLog("[Clipclean] 系统检测: %@ → 采用 macOS 14+ SwiftUI 材质回退 (.ultraThinMaterial)", ProcessInfo.processInfo.operatingSystemVersionString)
+        }
+
         NotificationCenter.default.addObserver(
             forName: NSApplication.didResignActiveNotification,
             object: nil,
