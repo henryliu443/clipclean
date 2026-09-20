@@ -19,18 +19,9 @@ clipboard behaves exactly as macOS normally does.
 
 ## Screenshots
 
-_Coming soon._
-
-<!--
-  Drop 01-main.png, 02-settings.png and 03-menu.png into Screenshots/ and
-  uncomment the table below.
-
 | Main panel | Settings | Right-click menu |
 | --- | --- | --- |
 | ![Main panel](Screenshots/01-main.png) | ![Settings](Screenshots/02-settings.png) | ![Right-click menu](Screenshots/03-menu.png) |
--->
-
-See [`Screenshots/`](Screenshots) for the expected file names.
 
 ## Requirements
 
@@ -43,7 +34,7 @@ translucent `.ultraThinMaterial`.
 
 ## Install
 
-Download `Clipclean-1.1.0.dmg` from the
+Download `Clipclean-1.1.1.dmg` from the
 [latest release](../../releases/latest), open it, and drag **Clipclean** into
 **Applications**.
 
@@ -96,7 +87,7 @@ open com.clipclean.paste.xcodeproj   # then ⌘R
 Release build and DMG:
 
 ```sh
-./scripts/package-dmg.sh             # build/Clipclean-1.1.0.dmg
+./scripts/package-dmg.sh             # build/Clipclean-1.1.1.dmg
 VERSION=1.2.0 ./scripts/package-dmg.sh
 ```
 
@@ -118,9 +109,9 @@ xcrun notarytool store-credentials "clipclean-notary" \
     --password "app-specific-password"
 
 # 3. Notarize and staple
-xcrun notarytool submit build/Clipclean-1.1.0.dmg \
+xcrun notarytool submit build/Clipclean-1.1.1.dmg \
     --keychain-profile "clipclean-notary" --wait
-xcrun stapler staple build/Clipclean-1.1.0.dmg
+xcrun stapler staple build/Clipclean-1.1.1.dmg
 ```
 
 ## Project layout
