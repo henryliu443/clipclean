@@ -1,0 +1,11 @@
+# Visual Studio / CMake build output for the Windows port.
+.vs/
+out/
+build/
+build-*/
+*.user
+*.suo
+*.obj
+*.pdb
+*.ilk
+*.exe

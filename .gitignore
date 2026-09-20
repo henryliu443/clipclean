@@ -1,7 +1,21 @@
 .DS_Store
-build/
+
+# macOS
+com.clipclean.paste/build/
 DerivedData/
 *.xcuserstate
 xcuserdata/
 *.dmg
 *.pkg
+
+# Windows
+clipclean-windows/.vs/
+clipclean-windows/out/
+clipclean-windows/build/
+clipclean-windows/build-*/
+*.user
+*.suo
+*.obj
+*.pdb
+*.ilk
+*.exe
