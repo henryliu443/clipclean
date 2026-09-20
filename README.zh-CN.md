@@ -16,11 +16,18 @@
 
 ## 截图
 
-把图片放进 [`Screenshots/`](Screenshots) 文件夹，就会自动显示在下面。
+_待补充。_
+
+<!--
+  把 01-main.png、02-settings.png、03-menu.png 放进 Screenshots/ 后，
+  取消下面表格的注释即可。
 
 | 主面板 | 设置 | 右键菜单 |
 | --- | --- | --- |
 | ![主面板](Screenshots/01-main.png) | ![设置](Screenshots/02-settings.png) | ![右键菜单](Screenshots/03-menu.png) |
+-->
+
+文件名说明见 [`Screenshots/`](Screenshots)。
 
 ## 系统要求
 
