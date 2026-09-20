@@ -44,9 +44,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         setUpHotKeys()
 
         if #available(macOS 26.0, *) {
-            NSLog("[Clipclean] 系统检测: %@ → 采用 macOS 26+ 原生液态玻璃 (.glassEffect)", ProcessInfo.processInfo.operatingSystemVersionString)
+            NSLog("[Clipclean] 系统检测: %@ → 采用 macOS 26+ 原生液态玻璃 (NSGlassEffectView)", ProcessInfo.processInfo.operatingSystemVersionString)
         } else {
-            NSLog("[Clipclean] 系统检测: %@ → 采用 macOS 14–15 SwiftUI 材质回退 (.ultraThinMaterial)", ProcessInfo.processInfo.operatingSystemVersionString)
+            NSLog("[Clipclean] 系统检测: %@ → 采用 macOS 14–15 半透明材质 (NSVisualEffectView)", ProcessInfo.processInfo.operatingSystemVersionString)
         }
 
         NotificationCenter.default.addObserver(
@@ -99,9 +99,33 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         panel.contentMinSize = NSSize(width: 260, height: 280)
         panel.delegate = self
 
-        let hosting = NSHostingController(rootView: ClipboardPanelView(model: model))
-        hosting.sizingOptions = []
-        panel.contentViewController = hosting
+        let hosting = NSHostingView(rootView: ClipboardPanelView(model: model))
+
+        // Native Liquid Glass on macOS 26+, a translucent material below.
+        // Doing the background in AppKit avoids the SwiftUI glass container's
+        // rectangular backdrop leaking out behind the rounded panel.
+        let background: NSView
+        if #available(macOS 26.0, *) {
+            let glass = NSGlassEffectView()
+            glass.style = .regular
+            glass.cornerRadius = 14
+            glass.contentView = hosting
+            background = glass
+        } else {
+            let effect = NSVisualEffectView()
+            effect.material = .hudWindow
+            effect.blendingMode = .behindWindow
+            effect.state = .active
+            effect.wantsLayer = true
+            effect.layer?.cornerRadius = 14
+            effect.layer?.masksToBounds = true
+            effect.addSubview(hosting)
+            background = effect
+        }
+
+        panel.contentView = background
+        hosting.frame = background.bounds
+        hosting.autoresizingMask = [.width, .height]
 
         self.panel = panel
     }
