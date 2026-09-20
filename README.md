@@ -26,8 +26,11 @@ appear here automatically.
 
 ## Requirements
 
-- macOS 26.0 or later (the panel uses SwiftUI Liquid Glass)
+- macOS 14.0 or later (Apple Silicon or Intel)
 - Xcode 26+ to build
+
+On macOS 26 and later the panel uses SwiftUI Liquid Glass; on macOS 14–25 it
+falls back to a translucent `.ultraThinMaterial`.
 
 ## Install
 
