@@ -34,8 +34,8 @@ _待补充。_
 - macOS 14.0 或更高（Apple Silicon 或 Intel）
 - 构建需要 Xcode 26+
 
-在 macOS 26 及以上使用 SwiftUI 液态玻璃；macOS 14–25 回退为半透明
-`.ultraThinMaterial` 材质。
+在 macOS 26 及以上使用 SwiftUI 液态玻璃（跟随系统「外观 → Liquid Glass」设置）；
+macOS 14–15 回退为半透明 `.ultraThinMaterial` 材质。
 
 ## 安装
 
