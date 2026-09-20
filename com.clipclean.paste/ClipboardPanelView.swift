@@ -38,10 +38,9 @@ extension View {
     @ViewBuilder
     func adaptiveGlass<S: Shape>(in shape: S) -> some View {
         if #available(macOS 26.0, *) {
-            // macOS 26+: 原生 Liquid Glass
-            // 用 .regular 而不是 .clear —— .regular 会跟随系统「外观 → Liquid Glass」的
-            // Clear / Tinted 整体设置自动调节；.clear 是强制全透，不受系统滑杆控制。
-            self.glassEffect(.regular, in: shape)
+            // macOS 26+: 原生 Liquid Glass，激进的透明效果
+            // .clear 高透 + 0.10 白色 tint 补回一点玻璃厚度，避免完全透明
+            self.glassEffect(.clear.tint(.white.opacity(0.10)), in: shape)
         } else {
             // macOS 14–15: SwiftUI 半透明材质回退
             self.background(.ultraThinMaterial, in: shape)
