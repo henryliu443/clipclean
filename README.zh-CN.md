@@ -120,3 +120,7 @@ scripts/package-dmg.sh
 ## 刻意不做
 
 不做剪贴板历史、搜索、云同步、AI、OCR，也不做多余设置。
+
+## 许可证 / License
+
+Apache-2.0. 详见 `LICENSE` / See `LICENSE`.
