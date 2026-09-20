@@ -20,7 +20,7 @@ window, no installer.
 | Source | [`com.clipclean.paste/`](com.clipclean.paste) | [`clipclean-windows/`](clipclean-windows) |
 | Requirements | macOS 14.0 or later (Apple Silicon or Intel) | Windows 7 SP1 or later (32- or 64-bit) |
 | Built with | SwiftUI / AppKit (Xcode 26+) | Win32 / C++17 (MSVC or MinGW, no .NET) |
-| Distribution | `build/Clipclean-<version>.dmg` | `clipclean-windows/dist/Clipclean.exe` |
+| Distribution | [`Clipclean-1.1.1.dmg`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.dmg) | [`Clipclean-1.1.1.exe`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.exe) |
 | Backdrop | Liquid Glass on macOS 26+, translucent material on 14–15 | Solid panel that follows the system light / dark theme on Windows 10/11 |
 
 ## Features
@@ -80,9 +80,11 @@ hot keys.
 
 ## Install
 
-- **macOS** — download `Clipclean-<version>.dmg`, open it and drag **Clipclean**
+Download from the [latest release](https://github.com/henryliu443/clipclean/releases/latest):
+
+- **macOS** — download [`Clipclean-1.1.1.dmg`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.dmg), open it and drag **Clipclean**
   into **Applications**.
-- **Windows** — run `clipclean-windows/dist/Clipclean.exe`. There is no
+- **Windows** — download [`Clipclean-1.1.1.exe`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.exe). There is no
   installer; put it anywhere and tick *Start with Windows* in Settings.
 
 The macOS build in Releases is signed locally, not notarized, so on first

@@ -19,7 +19,7 @@
 | 源码 | [`com.clipclean.paste/`](com.clipclean.paste) | [`clipclean-windows/`](clipclean-windows) |
 | 要求 | macOS 14.0 及以上（Apple Silicon 或 Intel） | Windows 7 SP1 及以上（32 / 64 位） |
 | 技术 | SwiftUI / AppKit（Xcode 26+） | Win32 / C++17（MSVC 或 MinGW，无 .NET） |
-| 发行物 | `build/Clipclean-<版本>.dmg` | `clipclean-windows/dist/Clipclean.exe` |
+| 发行物 | [`Clipclean-1.1.1.dmg`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.dmg) | [`Clipclean-1.1.1.exe`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.exe) |
 | 背景 | macOS 26+ 液态玻璃，14–15 半透明材质 | 纯色面板，Win10/11 跟随系统深浅色 |
 
 ## 功能
@@ -73,10 +73,12 @@ macOS：
 
 ## 安装
 
-- **macOS** —— 下载 `Clipclean-<版本>.dmg`，打开后把 **Clipclean** 拖进
+从 [最新 Release](https://github.com/henryliu443/clipclean/releases/latest) 下载：
+
+- **macOS** —— 下载 [`Clipclean-1.1.1.dmg`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.dmg)，打开后把 **Clipclean** 拖进
   **应用程序**。
-- **Windows** —— 直接运行 `clipclean-windows/dist/Clipclean.exe`。无需安装，
-  放在任意位置即可，可在设置里勾选「随 Windows 启动」。
+- **Windows** —— 下载 [`Clipclean-1.1.1.exe`](https://github.com/henryliu443/clipclean/releases/download/v1.1.1/Clipclean-1.1.1.exe)。无需安装，
+  放在任意位置直接运行，可在设置里勾选「随 Windows 启动」。
 
 Releases 里的 macOS 构建是本地签名、未公证的，首次打开系统可能提示。右键
 应用选 **打开**，或在 *系统设置 → 隐私与安全性* 里放行。
