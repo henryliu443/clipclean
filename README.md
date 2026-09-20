@@ -19,12 +19,18 @@ clipboard behaves exactly as macOS normally does.
 
 ## Screenshots
 
-Drop the images below into the [`Screenshots/`](Screenshots) folder and they
-appear here automatically.
+_Coming soon._
+
+<!--
+  Drop 01-main.png, 02-settings.png and 03-menu.png into Screenshots/ and
+  uncomment the table below.
 
 | Main panel | Settings | Right-click menu |
 | --- | --- | --- |
 | ![Main panel](Screenshots/01-main.png) | ![Settings](Screenshots/02-settings.png) | ![Right-click menu](Screenshots/03-menu.png) |
+-->
+
+See [`Screenshots/`](Screenshots) for the expected file names.
 
 ## Requirements
 
