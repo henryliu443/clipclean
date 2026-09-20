@@ -16,7 +16,7 @@ struct ClipboardPanelView: View {
         .padding(16)
         .frame(minWidth: 260, minHeight: 280)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .clipcleanGlass(in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 }
 
@@ -46,7 +46,7 @@ private struct MainView: View {
                         .contentShape(Circle())
                 }
                 .buttonStyle(.plain)
-                .glassEffect(.regular, in: Circle())
+                .clipcleanGlass(in: Circle())
                 .contentShape(Circle())
                 .help(strings.settings)
             }
@@ -131,7 +131,7 @@ private struct SettingsView: View {
                         .contentShape(Circle())
                 }
                 .buttonStyle(.plain)
-                .glassEffect(.regular, in: Circle())
+                .clipcleanGlass(in: Circle())
                 .contentShape(Circle())
                 .keyboardShortcut(.escape, modifiers: [])
 
@@ -187,7 +187,7 @@ private struct SettingsView: View {
                 .font(.system(.caption, design: .rounded).weight(.semibold))
                 .padding(.horizontal, 8)
                 .padding(.vertical, 3)
-                .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 6))
+                .clipcleanGlass(in: RoundedRectangle(cornerRadius: 6))
             Text(description)
                 .font(.caption)
             Spacer()
