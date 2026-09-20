@@ -33,14 +33,27 @@ struct ClipboardPanelView: View {
     }
 }
 
-// MARK: - 版本检测：macOS 26+ 原生液态玻璃（跟随系统整体调节），macOS 14–15 回退 SwiftUI 材质
+// MARK: - 系统「外观 → Liquid Glass」滑杆
+/// 系统全局玻璃 tint 值：0 = 全透，1 = 全磨砂。
+/// `.clear` 不会自动跟随它，所以这里手动读出来补到 tint 上。
+private var systemGlassTintAmount: Double {
+    guard UserDefaults.standard.object(forKey: "NSGlassTintAmount") != nil else { return 0.5 }
+    return min(max(UserDefaults.standard.double(forKey: "NSGlassTintAmount"), 0), 1)
+}
+
+/// 放大系数：< 1 让它比系统默认更透明。调这个值即可整体控制透明度。
+private let glassTintScale = 0.2
+
+// MARK: - 版本检测：macOS 26+ 原生液态玻璃（跟随系统滑杆），macOS 14–15 回退 SwiftUI 材质
 extension View {
     @ViewBuilder
     func adaptiveGlass<S: Shape>(in shape: S) -> some View {
         if #available(macOS 26.0, *) {
-            // macOS 26+: 原生 Liquid Glass，激进的透明效果
-            // .clear 高透 + 0.10 白色 tint 补回一点玻璃厚度，避免完全透明
-            self.glassEffect(.clear.tint(.white.opacity(0.10)), in: shape)
+            // .clear 高透；再按系统滑杆的值补 tint，做到「透明 + 跟随系统」
+            self.glassEffect(
+                .clear.tint(.white.opacity(systemGlassTintAmount * glassTintScale)),
+                in: shape
+            )
         } else {
             // macOS 14–15: SwiftUI 半透明材质回退
             self.background(.ultraThinMaterial, in: shape)
