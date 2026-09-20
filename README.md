@@ -1,5 +1,7 @@
 # Clipclean
 
+**English** | [中文](README.zh-CN.md)
+
 A tiny native macOS menu bar utility that strips rich text from the clipboard.
 
 When **Plain Text Mode** is on, every copy is reduced to its plain-text
@@ -34,7 +36,7 @@ falls back to a translucent `.ultraThinMaterial`.
 
 ## Install
 
-Download `clipclean-1.0.0.dmg` from the
+Download `Clipclean-1.1.0.dmg` from the
 [latest release](../../releases/latest), open it, and drag **Clipclean** into
 **Applications**.
 
@@ -87,8 +89,8 @@ open com.clipclean.paste.xcodeproj   # then ⌘R
 Release build and DMG:
 
 ```sh
-./scripts/package-dmg.sh             # build/clipclean-1.0.0.dmg
-VERSION=1.0.1 ./scripts/package-dmg.sh
+./scripts/package-dmg.sh             # build/Clipclean-1.1.0.dmg
+VERSION=1.2.0 ./scripts/package-dmg.sh
 ```
 
 ## Signing and notarization (public distribution)
@@ -109,9 +111,9 @@ xcrun notarytool store-credentials "clipclean-notary" \
     --password "app-specific-password"
 
 # 3. Notarize and staple
-xcrun notarytool submit build/clipclean-1.0.0.dmg \
+xcrun notarytool submit build/Clipclean-1.1.0.dmg \
     --keychain-profile "clipclean-notary" --wait
-xcrun stapler staple build/clipclean-1.0.0.dmg
+xcrun stapler staple build/Clipclean-1.1.0.dmg
 ```
 
 ## Project layout
